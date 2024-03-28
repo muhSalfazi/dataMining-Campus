@@ -3,10 +3,12 @@ import re
 import seaborn as sns  
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+from sklearn.manifold import TSNE
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis #pip install scikit-learn
 
 
 
-df = pd.read_excel("data text (2).xlsx")
+df = pd.read_excel("c:/Users/salma/Documents/coding/datamining-praktikum/praktikum1/integrasi_data/pembersihan_data/pembersihanDataText/data_text.xlsx")
 # untuk membaca file excel :pip install openpyxl
 print("menampilkan data set")
 print(df.tail())
@@ -69,8 +71,36 @@ features1 = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
 x = data[features1]  # Perbaiki penulisan nama kolom
 x_standardized = StandardScaler().fit_transform(x)
 
-# Mengaplikasikan data
+# Mengaplikasikan PCA
 pca = PCA(n_components=2)
 principal_component = pca.fit_transform(x_standardized)
 principal_df = pd.DataFrame(principal_component, columns=['PC1', 'PC2'])
 print(principal_df.head())
+
+print(" Transformasi data dengan t-distributed Stochastic Neighbor Embedding(t-SNE)")
+# 5)Transformasi data dengan t-distributed Stochastic Neighbor Embedding(t-SNE)
+# membaca data
+data = sns.load_dataset('iris')
+# standarisasi data
+features = ['sepal_length','sepal_width','petal_length','petal_width']
+x= data[features]
+x_standardized = StandardScaler().fit_transform(x)
+# mengaplikasikan t-SNE
+tsne = TSNE (n_components=2,perplexity=30)
+tsne_results = tsne.fit_transform(x_standardized)
+tsne_df = pd.DataFrame(tsne_results,columns=['t-SNE1', 't-SNE2'])
+print(tsne_df.head())
+
+print("6)Transformasi data dengan LDA")
+# 6)Transformasi data dengan LDA
+# membaca data
+data =sns.load_dataset('iris')
+# standarisasi data
+features = ['sepal_length','sepal_width','petal_length','petal_width']
+x = data[features]
+x_standardized = StandardScaler().fit_transform(x)
+# implementasi LDA
+lda = LinearDiscriminantAnalysis(n_components=2)
+lda_results = lda.fit_transform(x_standardized,data['species'])
+lda_df=pd.DataFrame(lda_results,columns=['LDA1','LDA2'])
+print(lda_df)
