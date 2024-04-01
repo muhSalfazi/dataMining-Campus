@@ -8,7 +8,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis #pip instal
 
 
 
-df = pd.read_excel("c:/Users/salma/Documents/coding/datamining-praktikum/praktikum1/integrasi_data/pembersihan_data/pembersihanDataText/data_text.xlsx")
+df = pd.read_excel("c:/Users/salma/Documents/coding/datamining(teori&praktikum)/praktikum1/integrasi_data/pembersihan_data/pembersihanDataText/data_text.xlsx")
 # untuk membaca file excel :pip install openpyxl
 print("menampilkan data set")
 print(df.tail())
