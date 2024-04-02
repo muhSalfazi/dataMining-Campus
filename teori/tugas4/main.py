@@ -21,7 +21,7 @@ df_clean = df_clean[(np.abs(df_clean['House_Price'] - df_clean['House_Price'].me
 # Memilih variabel yang relevan
 df_selected = df_clean[['Dist_Taxi', 'Dist_Market', 'Dist_Hospital', 'Carpet', 'Builtup', 'Rainfall', 'House_Price']]
 
-# Memisahkan variabel independen dan dependen
+# Mempisahkan variabel independen dan dependen setelah EDA
 X = df_selected.drop('House_Price', axis=1)
 y = df_selected['House_Price']
 
@@ -45,7 +45,7 @@ print("Mean squared error:", mse)
 # Output
 print("Model regresi linear:", model)
 
-# Menampilkan boxplot untuk setiap variabel
+# Menampilkan boxplot untuk setiap variabel setelah EDA
 plt.figure(figsize=(12, 8))
 for i, col in enumerate(df_selected.columns[:-1]):
     plt.subplot(2, 3, i+1)
@@ -53,4 +53,7 @@ for i, col in enumerate(df_selected.columns[:-1]):
     plt.title(f'Boxplot {col}')
 plt.tight_layout()
 plt.show()
+
+
+
 
