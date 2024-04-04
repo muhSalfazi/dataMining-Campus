@@ -31,6 +31,10 @@ plt.xlabel('Harga Rumah')
 plt.ylabel('Frekuensi')
 plt.show()
 
+harga_termurah = df['House_Price'].min()
+print("==============================================")
+print("Harga rumah termurah adalah:", harga_termurah)
+
 # Misalnya, visualisasi hubungan antara House_Price dan Dist_Taxi
 plt.figure(figsize=(10, 6))
 sns.scatterplot(data=df, x='Dist_Taxi', y='House_Price')

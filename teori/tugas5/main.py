@@ -4,7 +4,7 @@ from sklearn.metrics import silhouette_score
 import matplotlib.pyplot as plt
 import pandas as pd
 # Membaca data dari file CSV
-data = pd.read_csv('price.csv')
+data = pd.read_csv('C:/Users/salma/Documents/coding/datamining(teori&praktikum)/teori/tugas3/price.csv')
 
 # Menghapus kolom non-numerik
 data_numeric = data.select_dtypes(include=['number'])

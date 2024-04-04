@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error
 
 # Membaca dataset properti
-df = pd.read_csv('price.csv')
+df = pd.read_csv('C:/Users/salma/Documents/coding/datamining(teori&praktikum)/teori/tugas3/price.csv')
 
 # Menampilkan informasi data
 print(df.head())
