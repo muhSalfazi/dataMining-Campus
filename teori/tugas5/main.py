@@ -58,3 +58,20 @@ plt.title('K-Medoids Clustering')
 plt.xlabel('Feature 1')
 plt.ylabel('Feature 2')
 plt.show()
+# Memilih model dengan silhouette score tertinggi
+if silhouette_kmeans > silhouette_kmedoids:
+    labels = kmeans_labels
+    centers = kmeans.cluster_centers_
+    title = 'K-Means Clustering'
+else:
+    labels = kmedoids_labels
+    centers = kmedoids.cluster_centers_
+    title = 'K-Medoids Clustering'
+
+# Ilustrasi hasil pengelompokan
+plt.scatter(data_numeric.iloc[:, 0], data_numeric.iloc[:, 1], c=labels, cmap='viridis')
+plt.scatter(centers[:, 0], centers[:, 1], marker='x', c='red', s=200)
+plt.title(title + " (OPTIMAL)")
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.show()
